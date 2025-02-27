@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>欢迎来到地府</title>
+  <style>
+    /* 设置页面基础样式 */
+    body {
+      font-family: 'Comic Sans MS', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #fff;
+      background-color: #1a1a1a;
+      overflow-x: hidden; /* 防止横向滚动 */
+    }
+
+    /* 背景图片 */
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('background-image.jpg'); /* 更换成实际的背景图片路径 */
+      background-size: cover;
+      background-position: center;
+      z-index: -1;
+    }
+
+    /* 轮播图容器 */
+    .carousel-container {
+      width: 100%;
+      height: 300px; /* 可以根据需要调整高度 */
+      overflow: hidden; /* 隐藏超出的部分 */
+      position: relative;
+    }
+
+    .carousel-images {
+      display: flex;
+      transition: transform 1s ease; /* 平滑过渡效果 */
+      width: 300%; /* 假设有3张图片，宽度是容器的3倍 */
+    }
+
+    .carousel-images img {
+      width: 100%;   /* 每张图片占据100%的宽度 */
+      height: 100%;  /* 每张图片占据100%的高度 */
+      object-fit: cover; /* 确保每张图片会填充整个容器 */
+    }
+
+    /* 内容容器 */
+    .container {
+      padding: 20px;
+      text-align: center;
+      max-width: 1200px;
+      margin: 0 auto; /* 使内容居中 */
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #ffcc00;
+    }
+
+    h2 {
+      font-size: 1.5em;
+      margin-bottom: 30px;
+      color: #ff6666;
+    }
+
+    p {
+      font-size: 1.2em;
+      color: #ffffff;
+      margin-bottom: 20px;
+    }
+
+    /* 版块样式 */
+    .section {
+      margin-bottom: 40px;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+    }
+
+    .section h3 {
+      font-size: 1.8em;
+      color: #ffcc00;
+      margin-bottom: 10px;
+    }
+
+    .section img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .section p {
+      font-size: 1.1em;
+      color: #cccccc;
+    }
+
+    /* 点赞和收藏按钮样式 */
+    .buttons {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .button {
+      padding: 10px 20px;
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #ff1a1a;
+    }
+
+    .footer {
+      margin-top: 50px;
+      padding: 20px;
+      text-align: center;
+      background-color: #222;
+      font-size: 1.2em;
+      color: #ffcc00;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- 背景 -->
+  <div class="background"></div>
+
+  <!-- 轮播图 -->
+  <div class="carousel-container">
+    <div class="carousel-images">
+      <img src="images/ad1.jpg" alt="地府宣传图1">
+      <img src="images/ad2.jpg" alt="地府宣传图2">
+      <img src="images/ad3.jpg" alt="地府宣传图3">
+    </div>
+  </div>
+
+  <div class="container">
+    <h1>欢迎来到地府报道</h1>
+    <h2>探索比活着更有人情味的地府，笑一笑，面对死后的一切！</h2>
+
+    <!-- 第一版块 -->
+    <div class="section">
+      <h3>鬼才网招人淘汰指南</h3>
+      <img src="images/ghost-recruitment.jpg" alt="鬼才网招人淘汰指南"> <!-- 插图 -->
+      <p>在地府的工作竞争十分激烈，只有最具创意和技能的鬼才才能脱颖而出。赶快来看看地府的招人淘汰指南，确保你能在地府职场竞争中笑到最后！</p>
+      <div class="buttons">
+        <button class="button">点赞</button>
+        <button class="button">收藏</button>
+      </div>
+    </div>
+
+    <!-- 第二版块 -->
+    <div class="section">
+      <h3>拼好梦</h3>
+      <img src="images/dream-purchase.jpg" alt="拼好梦"> <!-- 插图 -->
+      <p>死后想念生前的亲人？用最低的价格替你传送消息，让你的梦境更加美好。来看看我们的“拼好梦”服务，快速、实惠，还能送你好运！</p>
+      <div class="buttons">
+        <button class="button">点赞</button>
+        <button class="button">收藏</button>
+      </div>
+    </div>
+
+    <!-- 第三版块 -->
+    <div class="section">
+      <h3>地府防骗提醒</h3>
+      <img src="images/scam-warning.jpg" alt="地府防骗提醒"> <!-- 插图 -->
+      <p>地府的生活不只有阴间的安宁，还有一些不为人知的骗局！赶紧查看我们的“地府防骗提醒”，让你在半死不活的日子里保持清醒，不中招。</p>
+      <div class="buttons">
+        <button class="button">点赞</button>
+        <button class="button">收藏</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <p>© 2025 地府报道 | 欢迎光临，期待您投胎回归！</p>
+  </div>
+
+  <script>
+    // 轮播图自动切换
+    let currentIndex = 0;
+    const images = document.querySelectorAll('.carousel-images img');
+    const totalImages = images.length;
+
+    function changeSlide() {
+      currentIndex++;
+      if (currentIndex >= totalImages) {
+        currentIndex = 0;
+      }
+
+      // 更新轮播图的显示
+      const offset = -100 * currentIndex + '%';
+      document.querySelector('.carousel-images').style.transform = `translateX(${offset})`;
+    }
+
+    // 每隔 3 秒切换一张图
+    setInterval(changeSlide, 3000);
+  </script>
+
+</body>
+</html>

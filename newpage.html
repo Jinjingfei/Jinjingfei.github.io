@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>欢迎来到地府</title>
+  <style>
+    /* 设置页面基础样式 */
+    body {
+      font-family: 'Comic Sans MS', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #fff;
+      background-color: #1a1a1a;
+      overflow: auto;
+    }
+
+    /* 背景视频 */
+    .background-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 300px; /* 背景视频占上部的固定高度 */
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    /* 内容容器 */
+    .container {
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #ffffff; /* 白色字体 */
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8); /* 白色字体加阴影效果 */
+    }
+
+    h2 {
+      font-size: 1.5em;
+      margin-bottom: 30px;
+      color: #ff6666; /* 亮一点的红色 */
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8); /* 红色字体加阴影效果 */
+    }
+
+    /* 版块样式 */
+    .section {
+      margin-bottom: 40px;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+    }
+
+    .section h3 {
+      font-size: 1.8em;
+      color: #3399ff; /* 亮一点的蓝色 */
+      margin-bottom: 10px;
+    }
+
+    .section img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .section p {
+      font-size: 1.1em;
+      color: #cccccc;
+    }
+
+    /* 点赞和收藏按钮样式 */
+    .buttons {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .button {
+      padding: 10px 20px;
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #ff1a1a;
+    }
+
+    .footer {
+      margin-top: 50px;
+      padding: 20px;
+      text-align: center;
+      background-color: #222;
+      font-size: 1.2em;
+      color: #ffcc00;
+    }
+
+    /* 科普栏样式 */
+    .info-section {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+    }
+
+    .info-box {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 15px;
+      border-radius: 8px;
+      width: 48%;
+    }
+
+    .info-box img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+
+    .info-box h4 {
+      color: #3399ff; /* 亮一点的蓝色 */
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+
+    .info-box p {
+      color: #cccccc;
+      font-size: 1em;
+    }
+
+    .info-section h3 {
+      font-size: 2em;
+      color: #ff6666;
+      margin-bottom: 20px;
+    }
+
+    /* 地府咨询的标题样式 */
+    .info-section h3 span {
+      display: block;
+    }
+
+    /* 前世查询区样式 */
+    .fortune-box {
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.8);
+      border-radius: 10px;
+      margin-bottom: 20px;
+      color: #ccc;
+    }
+
+    .fortune-box h4 {
+      font-size: 1.8em;
+      color: #ffcc00;
+    }
+
+    .fortune-box p {
+      font-size: 1.2em;
+      margin: 20px 0;
+    }
+
+    .fortune-box .result {
+      font-size: 1.4em;
+      color: #ff6666;
+      margin-top: 20px;
+    }
+
+    /* 弹幕样式 */
+    .barrage-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    .barrage {
+      position: absolute;
+      color: #fff;
+      font-size: 20px;
+      white-space: nowrap;
+      animation: moveBarrage 5s linear infinite;
+    }
+
+    @keyframes moveBarrage {
+      0% {
+        right: -100%;
+      }
+      100% {
+        right: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 背景视频 -->
+  <video class="background-video" autoplay loop muted>
+    <source src="death-promo.mp4" type="video/mp4">
+    您的浏览器不支持视频播放，请使用支持的视频格式。
+  </video>
+
+  <!-- 内容容器 -->
+  <div class="container">
+    <h1>欢迎来到地府报道</h1>
+    <h2>探索比活着更有人情味的地府，笑一笑，面对死后的一切！</h2>
+
+    <!-- 地府咨询部分 -->
+    <div class="info-section">
+      <h3><span>地府</span><span>咨询</span></h3>
+
+      <!-- 功德查询处 -->
+      <div class="info-box">
+        <h4>功德查询处</h4>
+        <img src="images/good-deeds.jpg" alt="功德查询"> <!-- 小插图 -->
+        <p>那些逃不掉的因果报应：有些人作恶多端，一生顺遂，有些人过得清贫，乐于助人，却下场凄惨。这种时候，要么是意外的因果，要么就是往事积累的福报或罪孽太重，仍然在偿还或者补上。</p>
+      </div>
+
+      <!-- 人造灵登记受理处 -->
+      <div class="info-box">
+        <h4>人造灵登记受理处</h4>
+        <img src="images/artificial-spirits.jpg" alt="人造灵"> <!-- 小插图 -->
+        <p>人造灵：世界赐予人类的礼物。不是每一个人都会有这种缘分：有一群人会有机缘创造一个或几个属于自己的人造灵，他们的存在依附于创造者的喜欢，且当这份感情消失掉，人造灵也会逐渐消失。</p>
+      </div>
+    </div>
+
+    <!-- 前世查询模块 -->
+    <div class="fortune-box">
+      <h4>查询你的前世</h4>
+      <p>功德：<span id="deedPoints"></span> (查询前世需要花费1000功德)</p>
+      <p id="deedMessage">积德福报，大富大贵。</p>
+      <button id="queryButton" class="button">查询前世</button>
+      <div id="resultSection" style="display: none;">
+        <p>您的前世是：<span id="pastLife"></span></p>
+        <p class="result" id="fortuneResult"></p>
+      </div>
+    </div>
+
+    <!-- 第一版块 -->
+    <div class="section">
+      <h3>鬼才网招人淘汰指南</h3>
+      <img src="images/ghost-recruitment.jpg" alt="鬼才网招人淘汰指南"> <!-- 插图 -->
+      <p>在地府的工作竞争十分激烈，只有最具创意和技能的鬼才才能脱颖而出。赶快来看看地府的招人淘汰指南，确保你能在地府职场竞争中笑到最后！</p>
+      <div class="buttons">
+        <button class="button">点赞</button>
+        <button class="button">收藏</button>
+      </div>
+    </div>
+
+    <!-- 第二版块 -->
+    <div class="section">
+      <h3>拼好梦</h3>
+      <img src="images/dream-purchase.jpg" alt="拼好梦"> <!-- 插图 -->
+      <p>你的人生是拼出来的，死后的世界也同样如此。拼尽全力获取更好的投胎机会，拼出你梦中的人生。快来探索地府的梦投胎业务，谁说死后不能享受人间的美好？</p>
+    </div>
+
+    <!-- 第三版块 -->
+    <div class="section">
+      <h3>快速通道 - 地府广告</h3>
+      <img src="images/advertisement.jpg" alt="地府广告"> <!-- 插图 -->
+      <p>想知道死后最热门的职业、生活方式或是怎样的人生比较轻松？快来查看我们的地府广告板块，学习死后的生活窍门！</p>
+    </div>
+  </div>
+
+  <!-- 弹幕容器 -->
+  <div class="barrage-container" id="barrageContainer"></div>
+
+  <!-- 页脚 -->
+  <div class="footer">
+    <p>版权所有 &copy; 地府 2025</p>
+  </div>
+
+  <script>
+    // 随机生成功德数值
+    const deedPoints = Math.floor(Math.random() * 4201) - 200;
+    document.getElementById("deedPoints").innerText = deedPoints;
+
+    // 查询前世按钮点击事件
+    document.getElementById("queryButton").addEventListener("click", function () {
+      const message = document.getElementById("deedMessage");
+      const resultSection = document.getElementById("resultSection");
+      const pastLife = document.getElementById("pastLife");
+
+      const updatedDeedPoints = deedPoints - 1000;
+      document.getElementById("deedPoints").innerText = updatedDeedPoints;
+
+      // 如果功德不足，不进行查询
+      if (updatedDeedPoints < 0) {
+        message.innerText = "功德不足，无法查询前世。";
+        resultSection.style.display = "none";
+        return;
+      }
+
+      // 随机生成前世和命运
+      setTimeout(() => {
+        const pastLives = ["动物", "人", "鬼", "高维人"];
+        const randomPastLife = pastLives[Math.floor(Math.random() * pastLives.length)];
+        pastLife.innerText = `${randomPastLife} (前一世)`;
+
+        const fortunes = [
+          "命运如浮云，起伏无常，百转千回，总难言其尽头。",
+          "生死轮回，前世未解，今生复归，依然百感交集。",
+          "风霜雨雪，因缘果报，千里之外，皆是安排。",
+          "命运波动，如波涛翻涌，一生何其短，百年如梦。",
+          "千世轮回，沉浮不定，冥冥之中，已注定几许。",
+          "岁月如歌，浮生若梦，谁知命运，几多惆怅。",
+          "命运如丝，细若游丝，情牵梦绕，时光匆匆。",
+          "四海为家，世事无常，今朝有酒，明日又何妨。",
+          "前世因果，今生悲喜，生死轮回，终有时尽。",
+          "如梦如幻，命运无常，岁月之中，百转千回。"
+        ];
+
+        const randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)];
+        document.getElementById("fortuneResult").innerText = randomFortune;
+
+        // 显示结果区域
+        resultSection.style.display = "block";
+      }, 1000);
+    });
+
+    // 弹幕效果
+    const messages = [
+      "谁说死后不能拥有幸福的生活！",
+      "我希望能见到前世的朋友。",
+      "投胎无门，地府居然这么好玩！",
+      "好想回去再拼一次人生！",
+      "死后一定要安安静静的！",
+      "没有灵魂的世界真空虚。",
+      "别问我前世，问就是过气鬼。",
+      "哈哈哈，死后居然有这么多事做！"
+    ];
+
+    function createBarrage() {
+      const randomIndex = Math.floor(Math.random() * messages.length);
+      const message = messages[randomIndex];
+      const barrageElement = document.createElement("div");
+      barrageElement.classList.add("barrage");
+      barrageElement.innerText = message;
+      document.getElementById("barrageContainer").appendChild(barrageElement);
+
+      const duration = 5; // 弹幕动画持续时间
+      barrageElement.style.animationDuration = `${duration}s`;
+
+      setTimeout(() => {
+        barrageElement.remove();
+      }, duration * 1000);
+    }
+
+    setInterval(createBarrage, 1500);
+  </script>
+</body>
+</html>

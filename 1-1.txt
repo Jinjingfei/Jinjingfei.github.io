@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>欢迎来到地府报道</title>
+  <style>
+    /* 让视频覆盖整个背景 */
+    body {
+      font-family: 'Comic Sans MS', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      overflow: hidden; /* 防止滚动条出现 */
+    }
+    
+    /* 设置视频全屏覆盖 */
+    video.background-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* 保证视频全屏且保持比例 */
+      z-index: -1; /* 让视频处于最底层 */
+    }
+
+    header {
+      background: linear-gradient(to bottom, #000, #222); /* 渐变背景，顶部黑色稍微减少 */
+      padding: 5px; /* 减少顶部黑色部分的高度 */
+      text-align: center;
+      font-size: 2em;
+      color: #fff; /* 白色字体 */
+    }
+
+    .main-content {
+      text-align: center;
+      margin-top: 10px; /* 调整中间内容位置，使表单靠上 */
+    }
+
+    .input-form {
+      background: linear-gradient(145deg, #f1f1f1, #dcdcdc); /* 渐变背景，提升质感 */
+      padding: 20px;
+      border-radius: 15px; /* 加大圆角 */
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.1); /* 更深的阴影 */
+      width: 80%;
+      max-width: 400px;
+      margin: 0 auto;
+      border: 1px solid #ddd; /* 更精致的边框 */
+    }
+
+    .input-form input, .input-form select, .input-form button {
+      width: 90%; /* 缩小输入框宽度 */
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      box-sizing: border-box; /* 确保内容区宽度不变 */
+      font-size: 1.1em; /* 增加字体大小 */
+    }
+
+    .button {
+      background-color: #ff4d4d; /* 红色背景 */
+      border: none;
+      color: white;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      border-radius: 8px; /* 加大按钮圆角 */
+    }
+
+    .button:hover {
+      background-color: #ff1a1a; /* 悬停时深红色 */
+    }
+
+    .message {
+      font-size: 1.2em;
+      margin-top: 20px;
+      color: #990000; /* 深红色 */
+      font-weight: bold; /* 加粗文本 */
+    }
+
+    footer {
+      background: linear-gradient(to top, #000, #222); /* 渐变背景，底部黑色稍微减少 */
+      text-align: center;
+      padding: 15px;
+      color: #fff;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 视频背景 -->
+  <video class="background-video" autoplay loop muted>
+    <source src="background.mp4" type="video/mp4">
+    您的浏览器不支持视频播放，请使用支持的视频格式。
+  </video>
+
+  <header>
+    <h1>欢迎来到地府报道！</h1>
+    <p>填写信息，开始你的地府旅程</p>
+  </header>
+
+  <div class="main-content">
+    <div class="input-form">
+      <h2>请填写死者信息</h2>
+      <form id="deathForm">
+        <input type="text" id="name" placeholder="请输入姓名" required>
+        <input type="text" id="race" placeholder="请输入种族" required>
+        <input type="text" id="cause" placeholder="请输入死因" required>
+        <button type="button" class="button" onclick="submitForm()">提交</button>
+      </form>
+      <div id="message" class="message"></div>
+    </div>
+  </div>
+
+  <footer>
+    <p>地府报道，心随梦远！</p>
+  </footer>
+
+  <script>
+    function submitForm() {
+      const name = document.getElementById('name').value;
+      const race = document.getElementById('race').value;
+      const cause = document.getElementById('cause').value;
+      const message = document.getElementById('message');
+
+      if(name && race && cause) {
+        message.innerHTML = `欢迎死者【${name}】到达地府！<br>种族：${race} <br>死因：${cause}<br>愿你在地府一切安好！`;
+        document.getElementById('deathForm').reset(); // 清空表单
+      } else {
+        message.innerHTML = "请填写所有信息！";
+      }
+    }
+  </script>
+
+</body>
+</html>
